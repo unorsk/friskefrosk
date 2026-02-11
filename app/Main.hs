@@ -1,8 +1,13 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Main (main) where
 
-import qualified MyLib (someFunc)
+import Friskefrosk.Parse (parse)
+import Text.Megaparsec.Error (errorBundlePretty)
 
 main :: IO ()
 main = do
-  putStrLn "Hello, Haskell!"
-  MyLib.someFunc
+  let source = "<repl>"
+  case parse source "Parent(1, 2)." of
+    Left e -> putStr $ errorBundlePretty e
+    Right rules -> print rules
