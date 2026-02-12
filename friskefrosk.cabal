@@ -31,7 +31,9 @@ executable friskefrosk
     build-depends:
         base ^>=4.21.0.0,
         friskefrosk,
-        megaparsec
+        haskeline,
+        megaparsec,
+        text
 
     hs-source-dirs:   app
 
